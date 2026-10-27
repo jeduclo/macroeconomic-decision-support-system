@@ -1,0 +1,1009 @@
+{
+  "m01": {
+    "years": 10,
+    "params": [
+      {
+        "key": "C",
+        "label": "Consumption (C)",
+        "type": "range",
+        "default": 600,
+        "min": 0,
+        "max": 1500,
+        "step": 10,
+        "format": "num",
+        "help": "Household spending on goods and services ($ billions)."
+      },
+      {
+        "key": "I",
+        "label": "Investment (I)",
+        "type": "range",
+        "default": 200,
+        "min": 0,
+        "max": 600,
+        "step": 10,
+        "format": "num",
+        "help": "Business spending on machines, buildings, new homes, inventories."
+      },
+      {
+        "key": "G",
+        "label": "Government purchases (G)",
+        "type": "range",
+        "default": 250,
+        "min": 0,
+        "max": 600,
+        "step": 10,
+        "format": "num",
+        "help": "Government spending on goods and services (not transfers)."
+      },
+      {
+        "key": "X",
+        "label": "Exports (X)",
+        "type": "range",
+        "default": 150,
+        "min": 0,
+        "max": 500,
+        "step": 10,
+        "format": "num",
+        "help": "Domestic production sold abroad."
+      },
+      {
+        "key": "M",
+        "label": "Imports (M)",
+        "type": "range",
+        "default": 170,
+        "min": 0,
+        "max": 500,
+        "step": 10,
+        "format": "num",
+        "help": "Foreign production bought here — subtracted from GDP."
+      },
+      {
+        "key": "inflation",
+        "label": "Inflation per year",
+        "type": "range",
+        "default": 0.02,
+        "min": 0,
+        "max": 0.1,
+        "step": 0.005,
+        "format": "pct",
+        "help": "How fast the general price level rises."
+      },
+      {
+        "key": "realGrowth",
+        "label": "Real growth per year",
+        "type": "range",
+        "default": 0.02,
+        "min": -0.05,
+        "max": 0.08,
+        "step": 0.005,
+        "format": "pct",
+        "help": "How fast the quantity of output rises."
+      }
+    ],
+    "presets": {
+      "Typical economy": {
+        "C": 600,
+        "I": 200,
+        "G": 250,
+        "X": 150,
+        "M": 170,
+        "inflation": 0.02,
+        "realGrowth": 0.02
+      },
+      "High inflation, no growth": {
+        "inflation": 0.08,
+        "realGrowth": 0.0
+      },
+      "Export boom": {
+        "X": 350,
+        "realGrowth": 0.04,
+        "inflation": 0.02
+      }
+    }
+  },
+  "m02": {
+    "years": 120,
+    "params": [
+      {
+        "key": "separation",
+        "label": "Job separation rate (per month)",
+        "type": "range",
+        "default": 0.015,
+        "min": 0.005,
+        "max": 0.05,
+        "step": 0.001,
+        "format": "pct",
+        "help": "Share of employed people who lose or leave their job each month."
+      },
+      {
+        "key": "jobFinding",
+        "label": "Job finding rate (per month)",
+        "type": "range",
+        "default": 0.25,
+        "min": 0.05,
+        "max": 0.6,
+        "step": 0.01,
+        "format": "pct",
+        "help": "Share of unemployed people who find a job each month."
+      },
+      {
+        "key": "participation",
+        "label": "Participation rate",
+        "type": "range",
+        "default": 0.65,
+        "min": 0.5,
+        "max": 0.8,
+        "step": 0.01,
+        "format": "pct",
+        "help": "Share of the working-age population in the labour force."
+      },
+      {
+        "key": "depth",
+        "label": "Recession: fall in job finding",
+        "type": "range",
+        "default": 0.4,
+        "min": 0,
+        "max": 0.8,
+        "step": 0.05,
+        "format": "pct",
+        "help": "How much harder it becomes to find a job in the recession."
+      },
+      {
+        "key": "length",
+        "label": "Recession length (months)",
+        "type": "range",
+        "default": 18,
+        "min": 0,
+        "max": 48,
+        "step": 1,
+        "format": "num",
+        "help": "Starts in month 24."
+      },
+      {
+        "key": "okun",
+        "label": "Okun coefficient",
+        "type": "range",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "step": 0.1,
+        "format": "num",
+        "help": "% of output lost per 1 point of cyclical unemployment."
+      }
+    ],
+    "presets": {
+      "Mild recession": {
+        "depth": 0.25,
+        "length": 9
+      },
+      "Great Recession style": {
+        "depth": 0.5,
+        "length": 24
+      },
+      "Rigid labour market": {
+        "separation": 0.01,
+        "jobFinding": 0.12,
+        "depth": 0.4,
+        "length": 18
+      }
+    }
+  },
+  "m03": {
+    "years": 20,
+    "params": [
+      {
+        "key": "moneyGrowth",
+        "label": "Money supply growth (μ)",
+        "type": "range",
+        "default": 0.05,
+        "min": 0,
+        "max": 0.3,
+        "step": 0.005,
+        "format": "pct",
+        "help": "How fast the central bank lets the money supply grow."
+      },
+      {
+        "key": "realGrowth",
+        "label": "Real GDP growth (g)",
+        "type": "range",
+        "default": 0.02,
+        "min": 0,
+        "max": 0.06,
+        "step": 0.0025,
+        "format": "pct",
+        "help": "Growth in the quantity of goods and services."
+      },
+      {
+        "key": "velocity",
+        "label": "Change in velocity (v)",
+        "type": "range",
+        "default": 0,
+        "min": -0.03,
+        "max": 0.03,
+        "step": 0.0025,
+        "format": "pct",
+        "help": "Change in how often money changes hands."
+      },
+      {
+        "key": "wageGrowth",
+        "label": "Nominal wage growth",
+        "type": "range",
+        "default": 0.035,
+        "min": 0,
+        "max": 0.3,
+        "step": 0.005,
+        "format": "pct",
+        "help": "Pay rises in dollars."
+      },
+      {
+        "key": "nominalRate",
+        "label": "Nominal interest rate",
+        "type": "range",
+        "default": 0.05,
+        "min": 0,
+        "max": 0.3,
+        "step": 0.0025,
+        "format": "pct",
+        "help": "Interest rate on savings or loans in dollars."
+      }
+    ],
+    "presets": {
+      "Price stability (2 %)": {
+        "moneyGrowth": 0.04,
+        "realGrowth": 0.02,
+        "velocity": 0,
+        "wageGrowth": 0.035,
+        "nominalRate": 0.05
+      },
+      "1970s inflation": {
+        "moneyGrowth": 0.11,
+        "realGrowth": 0.02,
+        "velocity": 0,
+        "wageGrowth": 0.08,
+        "nominalRate": 0.08
+      },
+      "High inflation episode": {
+        "moneyGrowth": 0.3,
+        "realGrowth": 0.0,
+        "velocity": 0.02,
+        "wageGrowth": 0.2,
+        "nominalRate": 0.2
+      }
+    }
+  },
+  "m04": {
+    "years": 100,
+    "params": [
+      {
+        "key": "saving",
+        "label": "Saving rate (s)",
+        "type": "range",
+        "default": 0.25,
+        "min": 0.05,
+        "max": 0.5,
+        "step": 0.01,
+        "format": "pct",
+        "help": "Share of income saved and invested in capital."
+      },
+      {
+        "key": "popGrowth",
+        "label": "Population growth (n)",
+        "type": "range",
+        "default": 0.01,
+        "min": 0,
+        "max": 0.04,
+        "step": 0.0025,
+        "format": "pct",
+        "help": "Growth of the labour force per year."
+      },
+      {
+        "key": "depreciation",
+        "label": "Depreciation (δ)",
+        "type": "range",
+        "default": 0.05,
+        "min": 0.02,
+        "max": 0.1,
+        "step": 0.005,
+        "format": "pct",
+        "help": "Share of capital that wears out each year."
+      },
+      {
+        "key": "techGrowth",
+        "label": "Technology growth (g)",
+        "type": "range",
+        "default": 0.015,
+        "min": 0,
+        "max": 0.04,
+        "step": 0.0025,
+        "format": "pct",
+        "help": "Growth of productivity from new ideas."
+      },
+      {
+        "key": "poorStart",
+        "label": "Poor country's starting capital",
+        "type": "range",
+        "default": 0.15,
+        "min": 0.02,
+        "max": 1,
+        "step": 0.01,
+        "format": "pct",
+        "help": "As a share of the rich country's capital per worker."
+      }
+    ],
+    "presets": {
+      "Baseline": {
+        "saving": 0.25,
+        "popGrowth": 0.01,
+        "depreciation": 0.05,
+        "techGrowth": 0.015,
+        "poorStart": 0.15
+      },
+      "Saving more": {
+        "saving": 0.4
+      },
+      "Faster technology": {
+        "techGrowth": 0.03
+      },
+      "Fast population growth": {
+        "popGrowth": 0.03
+      }
+    }
+  },
+  "m05": {
+    "years": 0,
+    "params": [
+      {
+        "key": "autoC",
+        "label": "Autonomous consumption",
+        "type": "range",
+        "default": 100,
+        "min": 0,
+        "max": 300,
+        "step": 10,
+        "format": "num",
+        "help": "Spending even at zero income."
+      },
+      {
+        "key": "mpc",
+        "label": "Marginal propensity to consume (MPC)",
+        "type": "range",
+        "default": 0.75,
+        "min": 0.5,
+        "max": 0.9,
+        "step": 0.01,
+        "format": "num",
+        "help": "Share of each extra dollar of disposable income that is spent."
+      },
+      {
+        "key": "I",
+        "label": "Investment (I)",
+        "type": "range",
+        "default": 150,
+        "min": 0,
+        "max": 400,
+        "step": 10,
+        "format": "num",
+        "help": "Planned business investment."
+      },
+      {
+        "key": "G",
+        "label": "Government purchases (G)",
+        "type": "range",
+        "default": 200,
+        "min": 0,
+        "max": 400,
+        "step": 10,
+        "format": "num",
+        "help": "Government spending on goods and services."
+      },
+      {
+        "key": "T",
+        "label": "Taxes (T)",
+        "type": "range",
+        "default": 200,
+        "min": 0,
+        "max": 400,
+        "step": 10,
+        "format": "num",
+        "help": "Taxes net of transfers."
+      },
+      {
+        "key": "NX",
+        "label": "Net exports (NX)",
+        "type": "range",
+        "default": 0,
+        "min": -100,
+        "max": 100,
+        "step": 10,
+        "format": "num",
+        "help": "Exports minus imports."
+      },
+      {
+        "key": "shock",
+        "label": "Change in spending (ΔI or ΔG)",
+        "type": "range",
+        "default": 50,
+        "min": -150,
+        "max": 150,
+        "step": 10,
+        "format": "num",
+        "help": "A shift in planned spending — watch the multiplier."
+      },
+      {
+        "key": "potential",
+        "label": "Potential output",
+        "type": "range",
+        "default": 1400,
+        "min": 800,
+        "max": 2400,
+        "step": 50,
+        "format": "num",
+        "help": "Output at full employment."
+      }
+    ],
+    "presets": {
+      "Investment boom": {
+        "shock": 50
+      },
+      "Investment collapse": {
+        "shock": -100
+      },
+      "Higher MPC": {
+        "mpc": 0.85,
+        "shock": 50
+      },
+      "Closing a recessionary gap": {
+        "shock": 50,
+        "potential": 1400
+      }
+    }
+  },
+  "m06": {
+    "years": 20,
+    "params": [
+      {
+        "key": "demandShock",
+        "label": "Demand shock (AD shift)",
+        "type": "range",
+        "default": -100,
+        "min": -200,
+        "max": 200,
+        "step": 10,
+        "format": "num",
+        "help": "Change in spending at every price level (e.g. confidence, exports, policy)."
+      },
+      {
+        "key": "supplyShock",
+        "label": "Supply shock (cost shift)",
+        "type": "range",
+        "default": 0,
+        "min": -20,
+        "max": 30,
+        "step": 1,
+        "format": "num",
+        "help": "Rise in production costs (e.g. oil prices) — shifts SRAS up."
+      },
+      {
+        "key": "supplyType",
+        "label": "Supply shock is…",
+        "type": "choice",
+        "default": "temporary",
+        "options": [
+          "temporary",
+          "permanent"
+        ],
+        "help": "Temporary shocks fade; permanent ones keep costs high."
+      },
+      {
+        "key": "potentialShift",
+        "label": "Change in potential output (LRAS)",
+        "type": "range",
+        "default": 0,
+        "min": -100,
+        "max": 100,
+        "step": 10,
+        "format": "num",
+        "help": "Technology, labour force or capital change the economy's capacity."
+      },
+      {
+        "key": "slope",
+        "label": "SRAS steepness",
+        "type": "range",
+        "default": 0.2,
+        "min": 0.05,
+        "max": 0.6,
+        "step": 0.01,
+        "format": "num",
+        "help": "How much prices rise as output expands in the short run."
+      },
+      {
+        "key": "adjust",
+        "label": "Speed of wage/price adjustment",
+        "type": "range",
+        "default": 0.3,
+        "min": 0.05,
+        "max": 1,
+        "step": 0.05,
+        "format": "pct",
+        "help": "How fast expectations and wages catch up each period."
+      }
+    ],
+    "presets": {
+      "Demand fall (recession)": {
+        "demandShock": -100,
+        "supplyShock": 0,
+        "potentialShift": 0
+      },
+      "Demand boom": {
+        "demandShock": 120,
+        "supplyShock": 0,
+        "potentialShift": 0
+      },
+      "Oil price shock": {
+        "demandShock": 0,
+        "supplyShock": 15,
+        "supplyType": "temporary",
+        "potentialShift": 0
+      },
+      "Productivity boom": {
+        "demandShock": 0,
+        "supplyShock": 0,
+        "potentialShift": 80
+      }
+    }
+  },
+  "m07": {
+    "years": 0,
+    "params": [
+      {
+        "key": "G",
+        "label": "Government purchases (G)",
+        "type": "range",
+        "default": 200,
+        "min": 0,
+        "max": 400,
+        "step": 10,
+        "format": "num",
+        "help": "Starting level of government spending."
+      },
+      {
+        "key": "T",
+        "label": "Taxes (T)",
+        "type": "range",
+        "default": 200,
+        "min": 0,
+        "max": 400,
+        "step": 10,
+        "format": "num",
+        "help": "Taxes net of transfers."
+      },
+      {
+        "key": "M",
+        "label": "Money supply (M)",
+        "type": "range",
+        "default": 600,
+        "min": 300,
+        "max": 1200,
+        "step": 10,
+        "format": "num",
+        "help": "Set by the central bank."
+      },
+      {
+        "key": "dG",
+        "label": "Fiscal change (ΔG)",
+        "type": "range",
+        "default": 100,
+        "min": -150,
+        "max": 150,
+        "step": 10,
+        "format": "num",
+        "help": "Shifts the IS curve."
+      },
+      {
+        "key": "dM",
+        "label": "Monetary change (ΔM)",
+        "type": "range",
+        "default": 0,
+        "min": -300,
+        "max": 300,
+        "step": 10,
+        "format": "num",
+        "help": "Shifts the LM curve."
+      },
+      {
+        "key": "investSens",
+        "label": "Investment sensitivity to interest",
+        "type": "range",
+        "default": 20,
+        "min": 5,
+        "max": 60,
+        "step": 1,
+        "format": "num",
+        "help": "How much investment falls when the interest rate rises 1 point."
+      },
+      {
+        "key": "moneySens",
+        "label": "Money demand sensitivity to interest",
+        "type": "range",
+        "default": 40,
+        "min": 10,
+        "max": 150,
+        "step": 1,
+        "format": "num",
+        "help": "How much less money people hold when the interest rate rises 1 point."
+      }
+    ],
+    "presets": {
+      "Fiscal expansion": {
+        "dG": 100,
+        "dM": 0
+      },
+      "Monetary expansion": {
+        "dG": 0,
+        "dM": 150
+      },
+      "Policy mix (both)": {
+        "dG": 100,
+        "dM": 200
+      },
+      "Strong crowding out": {
+        "dG": 100,
+        "dM": 0,
+        "investSens": 50,
+        "moneySens": 15
+      }
+    }
+  },
+  "m08": {
+    "years": 24,
+    "params": [
+      {
+        "key": "recession",
+        "label": "Recession size (output gap)",
+        "type": "range",
+        "default": -4,
+        "min": -8,
+        "max": 0,
+        "step": 0.5,
+        "format": "num",
+        "help": "Initial output gap in % of potential GDP."
+      },
+      {
+        "key": "spending",
+        "label": "Extra government spending (% GDP)",
+        "type": "range",
+        "default": 0.75,
+        "min": 0,
+        "max": 5,
+        "step": 0.25,
+        "format": "num",
+        "help": "Stimulus per quarter while the program runs."
+      },
+      {
+        "key": "taxCut",
+        "label": "Tax cut (% GDP)",
+        "type": "range",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "step": 0.25,
+        "format": "num",
+        "help": "Temporary tax cut per quarter."
+      },
+      {
+        "key": "mpc",
+        "label": "Marginal propensity to consume",
+        "type": "range",
+        "default": 0.75,
+        "min": 0.5,
+        "max": 0.9,
+        "step": 0.01,
+        "format": "num",
+        "help": "Bigger MPC → bigger multipliers."
+      },
+      {
+        "key": "crowding",
+        "label": "Crowding out / leakages",
+        "type": "range",
+        "default": 0.3,
+        "min": 0,
+        "max": 0.8,
+        "step": 0.05,
+        "format": "pct",
+        "help": "Share of the effect lost to higher interest rates and imports."
+      },
+      {
+        "key": "lag",
+        "label": "Policy lag (quarters)",
+        "type": "range",
+        "default": 2,
+        "min": 0,
+        "max": 8,
+        "step": 1,
+        "format": "num",
+        "help": "Time to recognise, legislate and spend."
+      },
+      {
+        "key": "duration",
+        "label": "Program length (quarters)",
+        "type": "range",
+        "default": 6,
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "format": "num",
+        "help": "How long the stimulus runs."
+      },
+      {
+        "key": "debt0",
+        "label": "Starting debt (% GDP)",
+        "type": "range",
+        "default": 60,
+        "min": 0,
+        "max": 150,
+        "step": 5,
+        "format": "num",
+        "help": "Government debt before the recession."
+      },
+      {
+        "key": "interest",
+        "label": "Interest rate on debt",
+        "type": "range",
+        "default": 0.03,
+        "min": 0,
+        "max": 0.08,
+        "step": 0.0025,
+        "format": "pct",
+        "help": "Average nominal interest rate paid."
+      },
+      {
+        "key": "growth",
+        "label": "Nominal GDP growth",
+        "type": "range",
+        "default": 0.04,
+        "min": 0,
+        "max": 0.08,
+        "step": 0.0025,
+        "format": "pct",
+        "help": "Long-run growth of nominal GDP."
+      }
+    ],
+    "presets": {
+      "Timely stimulus": {
+        "spending": 0.75,
+        "taxCut": 0,
+        "lag": 1,
+        "duration": 6
+      },
+      "Late stimulus": {
+        "spending": 0.75,
+        "taxCut": 0,
+        "lag": 8,
+        "duration": 6
+      },
+      "Tax cut instead": {
+        "spending": 0,
+        "taxCut": 0.75,
+        "lag": 1,
+        "duration": 6
+      },
+      "No policy": {
+        "spending": 0,
+        "taxCut": 0
+      }
+    }
+  },
+  "m09": {
+    "years": 32,
+    "params": [
+      {
+        "key": "shockType",
+        "label": "Shock",
+        "type": "choice",
+        "default": "demand",
+        "options": [
+          "demand",
+          "costPush"
+        ],
+        "help": "Demand: spending collapses. Cost-push: input prices jump."
+      },
+      {
+        "key": "shockSize",
+        "label": "Shock size",
+        "type": "range",
+        "default": 2,
+        "min": 0,
+        "max": 5,
+        "step": 0.25,
+        "format": "num",
+        "help": "Size of the shock (points of output gap or inflation)."
+      },
+      {
+        "key": "phiPi",
+        "label": "Response to inflation",
+        "type": "range",
+        "default": 1.5,
+        "min": 0,
+        "max": 3,
+        "step": 0.1,
+        "format": "num",
+        "help": "How strongly the policy rate reacts to inflation (Taylor principle: > 1)."
+      },
+      {
+        "key": "phiY",
+        "label": "Response to output gap",
+        "type": "range",
+        "default": 0.5,
+        "min": 0,
+        "max": 1.5,
+        "step": 0.1,
+        "format": "num",
+        "help": "How strongly the policy rate reacts to the output gap."
+      },
+      {
+        "key": "credibility",
+        "label": "Central bank credibility",
+        "type": "range",
+        "default": 0.6,
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "format": "pct",
+        "help": "How firmly expectations stay anchored at the 2 % target."
+      },
+      {
+        "key": "lag",
+        "label": "Transmission lag (quarters)",
+        "type": "range",
+        "default": 3,
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "format": "num",
+        "help": "Time for rate changes to affect spending."
+      },
+      {
+        "key": "passThrough",
+        "label": "Pass-through to market rates",
+        "type": "range",
+        "default": 0.7,
+        "min": 0.1,
+        "max": 1,
+        "step": 0.05,
+        "format": "pct",
+        "help": "How quickly loan and mortgage rates follow the policy rate."
+      }
+    ],
+    "presets": {
+      "Demand shock, Taylor rule": {
+        "shockType": "demand",
+        "shockSize": 2,
+        "phiPi": 1.5,
+        "phiY": 0.5
+      },
+      "Cost-push shock, credible bank": {
+        "shockType": "costPush",
+        "shockSize": 2,
+        "credibility": 0.8
+      },
+      "Cost-push shock, weak credibility": {
+        "shockType": "costPush",
+        "shockSize": 2,
+        "credibility": 0.2
+      },
+      "Passive central bank": {
+        "shockType": "costPush",
+        "shockSize": 2,
+        "phiPi": 0.6,
+        "phiY": 0.2,
+        "credibility": 0.2
+      }
+    }
+  },
+  "m10": {
+    "years": 32,
+    "params": [
+      {
+        "key": "scenario",
+        "label": "Shock scenario",
+        "type": "choice",
+        "default": "demandCollapse",
+        "options": [
+          "demandCollapse",
+          "oilShock",
+          "financialCrisis"
+        ],
+        "help": "Pick the crisis to manage."
+      },
+      {
+        "key": "fiscal",
+        "label": "Fiscal stimulus (% GDP per quarter)",
+        "type": "range",
+        "default": 1.5,
+        "min": 0,
+        "max": 4,
+        "step": 0.25,
+        "format": "num",
+        "help": "Extra government spending while the program runs."
+      },
+      {
+        "key": "fiscalLag",
+        "label": "Fiscal lag (quarters)",
+        "type": "range",
+        "default": 2,
+        "min": 0,
+        "max": 6,
+        "step": 1,
+        "format": "num",
+        "help": "Time before spending starts."
+      },
+      {
+        "key": "phiPi",
+        "label": "Monetary response to inflation",
+        "type": "range",
+        "default": 1.5,
+        "min": 0,
+        "max": 3,
+        "step": 0.1,
+        "format": "num",
+        "help": "Taylor-rule weight on inflation."
+      },
+      {
+        "key": "phiY",
+        "label": "Monetary response to output gap",
+        "type": "range",
+        "default": 0.5,
+        "min": 0,
+        "max": 1.5,
+        "step": 0.1,
+        "format": "num",
+        "help": "Taylor-rule weight on the output gap."
+      },
+      {
+        "key": "credibility",
+        "label": "Central bank credibility",
+        "type": "range",
+        "default": 0.6,
+        "min": 0,
+        "max": 1,
+        "step": 0.05,
+        "format": "pct",
+        "help": "Anchoring of inflation expectations."
+      }
+    ],
+    "presets": {
+      "Demand collapse: coordinated": {
+        "scenario": "demandCollapse",
+        "fiscal": 1.5,
+        "phiPi": 1.5,
+        "phiY": 0.5
+      },
+      "Oil shock: fight hard": {
+        "scenario": "oilShock",
+        "fiscal": 0,
+        "phiPi": 2.5,
+        "phiY": 0.2,
+        "credibility": 0.7
+      },
+      "Oil shock: look through": {
+        "scenario": "oilShock",
+        "fiscal": 0,
+        "phiPi": 1.1,
+        "phiY": 0.5,
+        "credibility": 0.7
+      },
+      "Financial crisis: all hands": {
+        "scenario": "financialCrisis",
+        "fiscal": 3,
+        "fiscalLag": 1,
+        "phiPi": 1.5,
+        "phiY": 1.0
+      },
+      "Do nothing": {
+        "fiscal": 0,
+        "phiPi": 0,
+        "phiY": 0
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+# Next.js dashboard
+FROM node:22-alpine AS build
+WORKDIR /app
+COPY package.json package-lock.json ./
+RUN npm ci
+COPY . .
+# API_URL is read by next.config.mjs at build time to rewrite /api/py/* to the API container
+ARG API_URL=http://api:8000
+ENV API_URL=$API_URL NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+
+FROM node:22-alpine
+WORKDIR /app
+ENV NODE_ENV=production NEXT_TELEMETRY_DISABLED=1
+COPY --from=build /app ./
+EXPOSE 3000
+CMD ["npm", "run", "start"]

@@ -1,0 +1,32 @@
+{
+  "name": "macrolab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MacroLab: Principles of Macroeconomics course (Modules 1-10) with interactive simulators, Python labs and quizzes. Next.js + Recharts + FastAPI.",
+  "scripts": {
+    "dev": "concurrently -n next,api -c cyan,magenta \"npm:next-dev\" \"npm:fastapi-dev\"",
+    "next-dev": "next dev",
+    "fastapi-dev": "node scripts/dev-api.mjs",
+    "build": "next build",
+    "start": "next start",
+    "lint": "tsc --noEmit",
+    "test:parity": "tsx scripts/dump-engines.ts > tests/.ts_output.json && python -m pytest -q tests/test_parity.py"
+  },
+  "dependencies": {
+    "lucide-react": "^1.61.0",
+    "next": "^16.4.3",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "recharts": "^3.10.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.3",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "concurrently": "^10.0.6",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

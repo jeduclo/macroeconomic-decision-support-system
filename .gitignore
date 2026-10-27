@@ -1,0 +1,18 @@
+node_modules/
+.next/
+out/
+.vercel/
+next-env.d.ts
+*.tsbuildinfo
+.env*.local
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+# Lab outputs
+labs/output/
+*.duckdb
+*.duckdb.wal
+tests/.ts_output.json
